@@ -1,4 +1,4 @@
-import {cardArray, grid, resultDisplay, numberOfGuesses, notificationDisplay} from './Consants.js';
+import {cardArray, grid, resultDisplay, numberOfGuesses, notificationDisplay} from './Helper.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     cardArray.sort(() => 0.5 - Math.random());
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cards[optionOneID].removeEventListener('click', flipCard);
             cards[optionTwoID].removeEventListener('click', flipCard);
             notificationDisplay.textContent = 'You found match';
-            ++result;
+            resultDisplay.textContent = ++result;
         }
         else {        
             cards[optionOneID].setAttribute('src', 'images/blank.png');
@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
             notificationDisplay.textContent = 'Sorry, try again';
         }
         resetArrays();
-        resultDisplay.textContent = result;
         if (result === cardArray.length / 2) {
             resultDisplay.textContent = 'Congratulations! You found them all!';
             location.reload();
