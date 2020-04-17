@@ -1,0 +1,43 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    border-style: ridge;
+    width: 500px;
+    height: 500px;
+    margin-left: 20px;
+}
+
+.grid div {
+    height: 50px;
+    width: 50px;    
+}
+
+.snake {
+    background-color: blue;
+    
+}
+
+.snakeHead {
+    background-color: skyblue;
+    border-radius: 10px;
+}
+
+.apple {
+    background-color: red;
+    border-radius: 25px;
+}
+
+.start {
+    width: 100px;
+    height: 30px;
+    margin: 10px 0px 5px 30px;
+}
+
+.score {
+    margin: 5px 0px 10px 45px;
+}
+
+.message {
+    margin-left: 30px;;
+}
+
