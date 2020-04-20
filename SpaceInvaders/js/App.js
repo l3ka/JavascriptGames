@@ -1,4 +1,4 @@
-import {squares, resultDisplay, message, alienInvaders, width} from './Helpers.js'
+import {squares, resultDisplay, message, resetGameBtn, width, alienInvaders} from './Helpers.js'
 
 let currentShooterIndex = squares.length - width - Math.round(width / 2);
 let currentInvadesIndex = 0;
@@ -18,6 +18,12 @@ function startGame() {
     invaderId = setInterval(moveInvaders, 500);
     // invoke invaders to shoot
     document.addEventListener('keyup', shoot);
+    // add reset game
+    resetGameBtn.addEventListener('click', resetGame);
+}
+
+function resetGame() {
+    location.reload();
 }
 
 function moveShooter(e) {
