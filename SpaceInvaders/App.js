@@ -1,6 +1,6 @@
 import {squares, resultDisplay, message, alienInvaders, width} from './Helpers.js'
 
-let currentShooterIndex = 202;
+let currentShooterIndex = squares.length - width - Math.round(width / 2);
 let currentInvadesIndex = 0;
 let alienInvadersTakenDown = [];
 let result = 0;
@@ -63,7 +63,7 @@ function moveInvaders() {
 
     for (let i = 0; i <= alienInvaders.length - 1; ++i) {
         squares[alienInvaders[i]].classList.remove('invader');
-    }    
+    }
     for (let i = 0; i <= alienInvaders.length - 1; ++i) {
         alienInvaders[i] += direction;
     }    
@@ -101,8 +101,7 @@ function shoot(e) {
         currentLaserIndex -= width;
         squares[currentLaserIndex].classList.add('laser');
         if (squares[currentLaserIndex].classList.contains('invader')) {
-            squares[currentLaserIndex].classList.remove('laser');
-            squares[currentLaserIndex].classList.remove('invader');
+            squares[currentLaserIndex].classList.remove('laser', 'invader');
             squares[currentLaserIndex].classList.add('boom');
 
             setTimeout(() => squares[currentLaserIndex].classList.remove('boom'), 250);
@@ -117,21 +116,11 @@ function shoot(e) {
             setTimeout(() => squares[currentLaserIndex].classList.remove('laser'), 100);
         }
     }
-    
-    // document.addEventListener('keyup', e => {
-    //     if (e.keyCode === 32) {
-    //         laserId = setInterval(moveLaser, 100);
-    //     }
-    // });
-
     switch (e.keyCode) {
         case 32:
             laserId = setInterval(moveLaser, 100);
             break;
     }
-
-
 }
-
 
 export {startGame}
